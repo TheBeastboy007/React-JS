@@ -1,18 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
+import authSlice from './authSlice';
 
 const store = configureStore({
     reducer: {
-        auth: (state = { user: null }, action) => {
-            switch (action.type) {
-                case 'auth/login':
-                    return { ...state, user: action.payload.userData };
-                case 'auth/logout':
-                    return { ...state, user: null };
-                default:
-                    return state;
-            }
-        },
+        auth : authSlice,
+        //TODO: add more slices here for posts
     }
 });
+
 
 export default store;
